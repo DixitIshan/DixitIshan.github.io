@@ -1954,8 +1954,9 @@ header .header-logo a {
 	height: 100%;
 	background: #EBEBEB;
 	width: 50%;
-	/*background-image: url(../images/ai.jpeg);*/
-	background-image: url(../images/matteblack.jpg);
+	background-image: url(../images/ai.jpeg);
+	/*background-image: url(../images/matteblack.jpg);*/
+	/*background-image: url(../images/darkainet.jpg);*/
 	background-repeat: no-repeat;
 	background-position: center;
 	-webkit-background-size: cover;
@@ -2175,8 +2176,9 @@ header .header-logo a {
 #skills {
 	background-color: #1f0e01;
 	/*background-image: url(../images/darkainet.jpg);*/
-	/*background-image: url(../images/skills-bg.jpg);*/
-	background-image: url(../images/matteblack.jpg);
+	background-image: url(../images/skills-bg.jpg);
+	/*background-image: url(../images/ai.jpeg);*/
+	/*background-image: url(../images/matteblack.jpg);*/
 	background-repeat: no-repeat;
 	background-position: center;
 	-webkit-background-size: cover;
@@ -2440,6 +2442,7 @@ header .header-logo a {
 #portfolio {
 	background: #EBEBEB;
 	/*background-image: url(../images/darkainet.jpg);*/
+	/*background-image: url(../images/ai.jpeg);*/
 	min-height: 800px;
 	position: relative;
 	padding: 12rem 0 15rem;
