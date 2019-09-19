@@ -2175,10 +2175,7 @@ header .header-logo a {
  * ------------------------------------------------------------------- */
 #skills {
 	background-color: #1f0e01;
-	/*background-image: url(../images/darkainet.jpg);*/
 	background-image: url(../images/skills-bg.jpg);
-	/*background-image: url(../images/ai.jpeg);*/
-	/*background-image: url(../images/matteblack.jpg);*/
 	background-repeat: no-repeat;
 	background-position: center;
 	-webkit-background-size: cover;
