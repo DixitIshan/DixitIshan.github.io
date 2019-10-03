@@ -3732,7 +3732,7 @@
 	background-color: rgba(0, 0, 0, 0.45);
 }
 
-.lg-toolbar .lg-icon {
+/*.lg-toolbar .lg-icon {
 	color: #999;
 	cursor: pointer;
 	float: right;
@@ -3747,7 +3747,7 @@
 	-webkit-transition: color 0.2s linear;
 	-o-transition: color 0.2s linear;
 	transition: color 0.2s linear;
-}
+}*/
 
 .lg-toolbar .lg-icon:hover {
 	color: #FFF;
