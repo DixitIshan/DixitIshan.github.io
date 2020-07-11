@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <div class="KW_progressContainer">
+      <div class="KW_progressBar">
+
+      </div>
+    </div>
+    <div class="page">
+    <nav id="colorlib-main-nav" role="navigation">
+      <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
+      <div class="js-fullheight colorlib-table">
+      	<div class="img" style="background-image: url(images/ishan2.jpg);"></div>
+        <div class="colorlib-table-cell js-fullheight">
+          <div class="row no-gutters">
+            <div class="col-md-12 text-center">
+              <h1 class="mb-4"><a href="index.html" class="logo">Ishan Dixit</a></h1>
+              <ul>
+                <li><a href="index.html"><span><small>01</small>Home</span></a></li>
+                <li><a href="about.html"><span><small>02</small>Resume</span></a></li>
+                <li><a href="portfolio.html"><span><small>03</small>Portfolio</span></a></li>
+                <li class="active"><a href="blog.html"><span><small>04</small>Blog</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="colorlib-page">
+      <header>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="colorlib-navbar-brand">
+                <a class="colorlib-logo" href="index.html"><span class="logo-img" style="background-image: url(images/ishan2.jpg);"></span>Ishan Dixit</a>
+              </div>
+              <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="ftco-section">
+        <div class="container mt-5">
+        	<div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+              <span>Blog</span>
+              <h2>Musings of a Developer</h2>
+            </div>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+              <h2 class="mb-3">Let’s Learn MatPlotLib</h2>
+              <p>
+                <!-- <img src="1_BIpRgx5FsEMhr1k2EqBKFg.gif"> -->
+              </p>
+              <p>
+                In this post i am going to introduce you to one of the most popular Python library used to plot graphs. Yes you guessed it correct.…. its MATPLOTLIB.
+              </p>
+              <p>
+                Graphs are nothing but a way to represent information visually. Graphs dramatically increases the capability of processing information for anyone. They play a major role in evaluation/analysis and can efficiently boost productivity in business. Graphs are useful for comparing data. There are mainly 2 categories of graph namely 2-Dimensional graph and 3-Dimensional graphs. sub-categorizing them are a variety of types of graphs. line graph, Bar chart, Pie chart, Scatter plot graph, etc just to name a few. In python, MatPlotLib is a library that lets us plot graphs(2-D & 3-D)very easily and efficiently. Below, only gives a gentle introduction on how this library can be utilized.
+              </p>
+              <p>
+                <strong>NOTE:</strong>: This post assumes that you already have Matplotlib installed on your machine. If not, you might want to go through your system specific(Win, Linux, Mac etc.) instructions first.
+              </p>
+              <p>
+                <br>
+                Let’s start with 2-D line graph.
+                <br><br>
+              </p>
+              <p>
+                <code>
+                  import matplotlib.pyplot as plt<br><br>
+                  x = [1, 2, 3]<br>
+                  y = [4, 5, 6]<br><br>
+                  x1 = [10, 11, 12]<br>
+                  y1 = [13, 14, 15]<br><br>
+                  x2 = [20, 21, 22]<br>
+                  y2 = [23, 24, 25]<br><br>
+                  plt.xlabel('X_LABEL')<br>
+                  plt.ylabel('Y_LABEL')<br><br>
+                  plt.plot(x, y, label = 'First')<br>
+                  plt.plot(x1, y1, label = 'Second')<br>
+                  plt.plot(x2, y2, label = 'Third')<br><br>
+                  plt.title('FIRST EVER MATPLOTLIB GRAPH')<br><br>
+                  plt.legend()<br>
+                  plt.show()<br>
+                </code>
+              </p>
+              <p>
+                <ol>
+                  <li>
+                    The first line is the ideal representation on how to import the matplotlib library on to a python script. ‘matplotlib.pyplot’ is a collection of command style functions that make matplotlib work like MATLAB.
+                  </li>
+                  <li>
+                    x,x1 & x2 and y,y1 & y2 are the data lists, required to plot a graph.
+                  </li>
+                  <li>
+                    plt.xlabel() and plt.ylabel() represents the name of the respective axis. Try changing it.
+                  </li>
+                  <li>
+                    plt.plot() takes the data lists as arguments and plots the graph accordingly. Apart from data lists, this function takes a variety of arguments for controlling the graphs properties like shape, size, colour, linewidth, etc.
+                  </li>
+                  <li>
+                    plt.title() is the heading for the plotted graph. plt.legend()……. well, try commenting that particular line and see the results.
+                  </li>
+                  <li>
+                    Finally plt.show() is the inbuilt function that outputs the plotted graph.
+                  </li>
+                </ol>
+              </p>
+              <p>
+                Below are the code snippets for basic 2-D Bar chart, Histogram, Stack plot, Scatter graph, Pie chart respectively.
+              </p>
+              <p>
+                <code>
+                  <strong># Bar chart</strong><br>
+                  import matplotlib.pyplot as plt<br><br>
+                  x = [2, 4, 6, 8, 10]<br>
+                  y = [7, 2, 7, 9, 16]<br><br>
+                  x1 = [1,3,5,7,9]<br>
+                  y1 = [7,8,2,4,6]<br><br>
+                  plt.bar(x, y, label = 'FIRST', color = 'c')<br>
+                  plt.bar(x1, y1, label = 'SECOND', color = 'r')<br>
+                  plt.xlabel('X_LABEL')<br>
+                  plt.ylabel('Y_LABEL')<br>
+                  plt.title('BARCHART PLOTTING')<br>
+                  plt.legend()<br>
+                  plt.show()<br><br>
+                  --------------------------------------------------------------------<br>
+                  <strong># Histogram</strong><br>
+                  import matplotlib.pyplot as plt<br><br>
+                  population_ages = [22, 55, 62, 55, 88, 5, 12, 4, 57, 9, 105, 6, 32, 4, 72, 94, 26, 59, 16, 53, 86, 10, 45, 34, 65, 85, 25, 35, 25, 14, 16, 36, 17, 27, 38, 49, 56, 10, 64]
+                  bins = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]<br>
+                  plt.hist(population_ages, bins, histtype = 'bar', rwidth = .2)<br>
+                  plt.xlabel('X_LABEL')<br>
+                  plt.ylabel('Y_LABEL')<br>
+                  plt.title('HISTOGRAM PLOTTING')<br>
+                  #plt.legend()<br>
+                  plt.show()<br><br>
+                  --------------------------------------------------------------------<br>
+                  <strong># Stack</strong><br>
+                  import matplotlib.pyplot as plt<br><br>
+                  days = [1,2,3,4,5]<br>
+                  sleeping = [7,8,6,11,7]<br>
+                  eating = [2,3,4,3,2]<br>
+                  working = [7,8,7,2,2]<br>
+                  playing = [8,5,7,8,13]<br>
+                  plt.plot([], [], color = 'm', label = 'Sleeping', linewidth = 7)<br>
+                  plt.plot([], [], color = 'c', label = 'Eating', linewidth = 7)<br>
+                  plt.plot([], [], color = 'r', label = 'Working', linewidth = 7)<br>
+                  plt.plot([], [], color = 'k', label = 'Playing', linewidth = 7)<br>
+                  plt.stackplot(days, sleeping, eating, working, playing, colors = ['m','c','r','k'])<br>
+                  plt.xlabel('X_LABEL')<br>
+                  plt.ylabel('Y_LABEL')<br>
+                  plt.legend()<br>
+                  plt.show()<br><br>
+                  --------------------------------------------------------------------<br>
+                  <strong># Scatter</strong><br>
+                  import matplotlib.pyplot as plt<br><br>
+                  x = [1,2,3,4,5,6]<br>
+                  y = [7,8,9,1,2,1]<br>
+                  plt.title("SCATTER PLOTTING")<br>
+                  plt.xlabel('X_LABEL')<br>
+                  plt.ylabel('Y_LABEL')<br>
+                  plt.scatter(x, y, s = 100, color = 'cyan', label = "SCATTER PLOT")<br>
+                  plt.legend()<br>
+                  plt.show()<br><br>
+                  --------------------------------------------------------------------<br>
+                  <strong># Pie Chart</strong><br>
+                  import matplotlib.pyplot as plt<br><br>
+                  sleeping = [7,8,6,11,7]<br>
+                  eating = [2,3,4,3,2]<br>
+                  working = [7,8,7,2,2]<br>
+                  playing = [8,5,7,8,13]<br>
+                  slices = [7,2,7,8]<br>
+                  activities = ['sleeping','eating','working','playing']<br>
+                  colors = ['m','c','r','b']<br>
+                  plt.pie(<br>
+                  &ensp;&ensp;&ensp;&ensp;slices,<br>
+                  &ensp;&ensp;&ensp;&ensp;labels = activities,<br>
+                  &ensp;&ensp;&ensp;&ensp;colors = colors,<br>
+                  &ensp;&ensp;&ensp;&ensp;startangle =180,<br>
+                  &ensp;&ensp;&ensp;&ensp;shadow = True,<br>
+                  &ensp;&ensp;&ensp;&ensp;counterclock = True,<br>
+                  &ensp;&ensp;&ensp;&ensp;explode = (0,0.1,0,0),<br>
+                  &ensp;&ensp;&ensp;&ensp;autopct = '%1.1f%%'<br>
+                  )<br>
+                  plt.xlabel('X_LABEL')<br>
+                  plt.ylabel('Y_LABEL')<br>
+                  plt.show()<br>
+                </code>
+              </p>
+              <p>
+                <br>
+                In all of the above examples data is created manually in form of lists. But in real time scenarios, data is not manually fed. Let’s look at an example where we take data from a CSV file
+                <br><br>
+              </p>
+              <p>
+                <code>
+                  import matplotlib.pyplot as plt<br>
+                  import csv<br>
+                  import numpy as np<br><br>
+                  x = []<br>
+                  y = []<br>
+                  with open('example.txt','r') as csvfile:<br>
+                  &ensp;&ensp;&ensp;lots = csv.reader(csvfile, delimiter  = ',')<br>
+                  &ensp;&ensp;&ensp;or row in plots:<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;x.append(int(row[0]))<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;y.append(int(row[1]))<br>
+                  plt.plot(x, y, label = 'Loaded from file')
+                </code>
+              </p>
+              <p>
+                <br>
+                In the above snippet, example.txt is a simple text file containing random numbers which are separated by a comma(‘ , ’), and the file is kept in the same directory as the script.
+                <br><br>
+              </p>
+              <p>
+                <br>
+                The same can also be done more effectively using Numpy. Numpy is another cool python library/module for some number crunching.
+                <br><br>
+              </p>
+              <p>
+                <code>
+                  import matplotlib.pyplot as plt<br>
+                  import numpy as np<br><br>
+                  x = []<br>
+                  y = []<br>
+                  x, y = np.loadtxt('example.txt', delimiter = ',', unpack = True)<br>
+                  plt.plot(x, y, label = 'Loaded from file')<br><br>
+                  plt.xlabel('X_LABEL')<br>
+                  plt.ylabel('Y_LABEL')<br><br>
+                  plt.legend()<br>
+                  plt.show()
+                </code>
+              </p>
+              <p>
+                <br>
+                Finally we move on to plotting a 3-D graph. As seen above during 2-D line graph, the code for 3-D line graphing is much similar.
+                <br>
+                <br>
+              </p>
+              <p>
+                <code>
+                  from mpl_toolkits.mplot3d import axes3d<br>
+                  import matplotlib.pyplot as plt<br><br>
+                  fig = plt.figure()<br>
+                  ax1 = fig.add_subplot(111, projection = '3d')<br><br>
+                  x = [1,2,3,4,5,6,7,8,9]<br>
+                  y = [3,4,5,6,7,8,9,0,1]<br>
+                  z = [6,7,8,9,0,1,2,3,4]<br>
+                  ax1.plot_wireframe(x,y,z)<br><br>
+                  ax1.set_xlabel('X_AXIS')<br>
+                  ax1.set_ylabel('Y_AXIS')<br>
+                  ax1.set_zlabel('Z_AXIS')<br><br>
+                  plt.show()
+                </code>
+              </p>
+              <p>
+                Now, lets try to join two pandas dataframe in 4 different ways namely Joining, Concatenating, Appending and Merging. All of them might seem to work in a similar manner at first glance but dont be mistaken because they all have very unique and different methodologies of operations.
+              </p>
+              <p>
+                <ol>
+                  <li>
+                    The first line is the main import from Matplotlib in order to plot 3-D graphs.
+                  </li>
+                  <li>
+                    The purpose of using plt.figure() is to create a figure object. It is necessary to explicitly use plt.figure()when we want to tweak the size of the figure and when we want to add multiple Axes objects in a single figure.
+                  </li>
+                  <li>
+                    the ax1.plot_wireframe(x,y,z) takes the data arguments and plots a wire-frame figure.
+                  </li>
+                  <li>
+                    Congratulations. You have your first ever 3-D line graph plotted with Matplotlib and Python.
+                  </li>
+                </ol>
+              </p>
+              <p>
+                Similar code can be applied to plot a 3-D Scatter graph and a 3-D Bar graph respectively.
+              </p>
+              <p>
+                <code>
+                  from mpl_toolkits.mplot3d import axes3d<br>
+                  import matplotlib.pyplot as plt<br><br>
+                  fig = plt.figure()<br>
+                  ax1 = fig.add_subplot(111, projection = '3d')<br><br>
+                  x = [1,2,3,4,5,6,7,8,9]<br>
+                  y = [3,4,5,6,7,8,9,0,1]<br>
+                  z = [6,7,8,9,0,1,2,3,4]<br>
+                  ax1.scatter(x, y, z, c = 'g', marker = 'o')<br>
+                  ax1.set_xlabel('X_AXIS')<br>
+                  ax1.set_ylabel('Y_AXIS')<br>
+                  ax1.set_zlabel('Z_AXIS')<br>
+                  plt.show()<br><br>
+                  --------------------------------------------------------------------<br>
+                  from mpl_toolkits.mplot3d import axes3d<br>
+                  import matplotlib.pyplot as plt<br>
+                  import numpy as np<br>
+                  from matplotlib import style<br><br>
+                  style.use('ggplot')<br>
+                  fig = plt.figure()<br><br>
+                  ax1 = fig.add_subplot(111, projection='3d')<br><br>
+                  x = [1,2,3,4,5,6,7,8,9,10]<br>
+                  y = [1,2,3,4,5,6,7,8,9,10]<br>
+                  z = np.zeros(10)<br><br>
+                  x1 = np.ones(10)<br>
+                  y1 = np.ones(10)<br>
+                  z1 = [1,2,3,4,5,6,7,8,9,10]<br><br>
+                  ax1.bar3d(x, y, z, x1, y1, z1)<br><br>
+                  ax1.set_xlabel('x axis')<br>
+                  ax1.set_ylabel('y axis')<br>
+                  ax1.set_zlabel('z axis')<br>
+                  plt.show()
+                </code>
+              </p>
+              <p>
+                3-D bar graphs are unique in itself. There is a starting point, then there is the height of the bar, the width of the bar and finally there is the depth of the bar. A bar chart starts with the flat bar on an axis, but we have added another dimension i.e. depth in our example.
+              </p>
+              <p>
+                Here we conclude this post with some of the references that are out there to explore Matplotlib.
+              </p>
+              <p>
+                <ol>
+                  <li>
+                    <a href="https://pythonprogramming.net/matplotlib-intro-tutorial/">Sentdex</a>
+                  </li>
+                  <li>
+                    <a href="https://matplotlib.org/contents.html">matplotlib docs</a>
+                  </li>
+                  <li>
+                    <a href="https://chrisalbon.com/">Chris Albon</a>
+                  </li>
+                </ol>
+              </p>
+
+              <p>
+                You can find a well commented and structured code along with reference notes on <a href="https://github.com/DixitIshan/Matplotlib_basics">my Github</a>. Make sure to check it out.
+              </p>
+              
+              <p>
+                Stay tuned. Until next time…!
+              </p>
+            </div> <!-- .col-md-8 -->
+
+          </div>
+        </div>
+      </section>
+      
+      <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+          <div class="row mb-5 justify-content-center">
+            <div class="col-md-5 text-center">
+              <div class="ftco-footer-widget mb-5">
+                <ul class="ftco-footer-social list-unstyled">
+                  <li class="ftco-animate"><a href="https://www.linkedin.com/in/ishan-dixit-89012275/" target="_blank"><span class="icon-linkedin"></span></a></li>
+                  <li class="ftco-animate"><a href="https://medium.com/@ishan.cdixit", target="_blank"><span class="icon-medium"></span></a></li>
+                  <li class="ftco-animate"><a href="https://github.com/DixitIshan", target="_blank"><span class="icon-github"></span></a></li>
+                </ul>
+              </div>
+              <div class="ftco-footer-widget">
+                <h2 class="mb-3">Contact</h2>
+                <p class="h3 email"><a href="#">ishan.cdixit@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <!-- loader -->
+      <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+      </div>
+
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/main.js"></script>
+    
+  </body>
+</html>
