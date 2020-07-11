@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <div class="KW_progressContainer">
+      <div class="KW_progressBar">
+
+      </div>
+    </div>
+    <div class="page">
+    <nav id="colorlib-main-nav" role="navigation">
+      <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
+      <div class="js-fullheight colorlib-table">
+      	<div class="img" style="background-image: url(images/author-2.jpg);"></div>
+        <div class="colorlib-table-cell js-fullheight">
+          <div class="row no-gutters">
+            <div class="col-md-12 text-center">
+              <h1 class="mb-4"><a href="index.html" class="logo">Ishan Dixit</a></h1>
+              <ul>
+                <li><a href="index.html"><span><small>01</small>Home</span></a></li>
+                <li><a href="about.html"><span><small>02</small>Resume</span></a></li>
+                <li><a href="portfolio.html"><span><small>03</small>Portfolio</span></a></li>
+                <li class="active"><a href="blog.html"><span><small>04</small>Blog</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="colorlib-page">
+      <header>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="colorlib-navbar-brand">
+                <a class="colorlib-logo" href="index.html"><span class="logo-img" style="background-image: url(images/person_1.jpg);"></span>Ishan Dixit</a>
+              </div>
+              <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="ftco-section">
+        <div class="container mt-5">
+        	<div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+              <span>Blog</span>
+              <h2>Musings of a Developer</h2>
+            </div>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+              <h2 class="mb-3">Image processing using Python & Open-CV part-2</h2>
+              <p>
+                <!-- <img src="1_BIpRgx5FsEMhr1k2EqBKFg.gif"> -->
+              </p>
+              <p>
+                Hello and welcome again to another part of the OPEN-CV with Python tutorial series and in the previous part, we saw some applications of Computer vision as well as how to get started with Intel’s Open-CV library and perform some basic operations on image frames.
+              </p>
+              <p>
+                In this part of the tutorial, we are going to learn some more challenging functionalities that Open-CV has to offer to us.
+              </p>
+              <p>
+                Let’s start with the <b>corner detection</b> method. As the name suggests, this technique detects all the corners inside any given image, Duh!
+              </p>
+              <p>
+                <code>
+                  #CORNER DETECTION<br>
+                  import numpy as np<br>
+                  import cv2<br>
+                  img = cv2.imread('heregoesyouramazingimage')<br>
+                  gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)<br>
+                  gray = np.float32(gray)<br><br>
+                  corners_to_detect = 100<br>
+                  minimum_quality_score = 0.01<br>
+                  minimum_distance = 10<br><br>
+                  ST_corners = cv2.goodFeaturesToTrack(gray, corners_to_detect, minimum_quality_score, minimum_distance)<br>
+                  ST_corners = np.float32(corners)<br><br>
+                  for corner in corners:<br>
+                  &ensp;&ensp;&ensp;&ensp;x,y = corner.ravel()<br>
+                  &ensp;&ensp;&ensp;&ensp;cv2.circle(img,(x,y),3,255,-1)<br><br>
+                  cv2.imshow('ST_corners', ST_corners)
+                </code>
+              </p>
+              <p>
+                <ol>
+                  <li>We first load in the image, convert it to gray and then convert it to float32.</li>
+                  <li>We then define some parameters that we pass to our “goodFeaturesToTrack” function.</li>
+                  <li>These parameters include 1) number of corners we want to detect, 2) quality of the detected corners and 3) Minimum distance between each detected corners. <strong>Go ahead and tinker with these numbers</strong>.</li>
+                  <li>Next, we iterate through each corner and make a circle at each point that we think is a corner. Thus detecting all the corners in the image</li>
+                </ol>
+              </p>
+              <p>
+                This is not the only method available in the Open-CV library to detect corners. The other method to achieve similar results is the <b><a href="https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_feature2d/py_features_harris/py_features_harris.html">Harris Corner Detection method</a></b>.
+              </p>
+              <p>
+                After getting to understand the concept of corner detection we now move on to learning what is foreground extraction. The idea of foreground extraction is to find the foreground, and remove the background. Same as it sounds. This is much like what a green screen does except here we will not require any green screen!
+              </p>
+              <p>
+                <code>
+                  #FOREGROUND EXTRACTION<br>
+                  import numpy as np<br>
+                  import cv2<br>
+                  from matplotlib import pyplot as plt<br><br>
+                  img = cv2.imread('heregoesyouamazingimage')<br><br>
+                  mask = np.zeros(img.shape[:2],np.uint8)<br><br>
+                  background_model = np.zeros((1,65),np.float64)<br>
+                  foreground_model = np.zeros((1,65),np.float64)<br><br>
+                  rectangle = (161,79,150,150)<br><br>
+                  cv2.grabCut(img,mask,rectangle,background_model,foreground_model,5,cv2.GC_INIT_WITH_RECT)<br><br>
+                  mask2 = np.where((mask==2)|(mask==0),0,1).astype('uint8')<br><br>
+                  img = img*mask2[:,:,np.newaxis]<br><br>
+                  plt.imshow(img)<br>
+                  plt.colorbar()<br>
+                  plt.show()
+                </code>
+              </p>
+              <p>
+                Breaking down the code bit by bit we get:
+              </p>
+              <p>
+                <ol>
+                  <li>
+                    Importing all the necessary libraries.
+                  </li>
+                  <li>
+                    loading in the image.
+                  </li>
+                  <li>
+                    creating a mask of a specific shape.
+                  </li>
+                  <li>
+                    specifying the background and foreground models.
+                  </li>
+                  <li>
+                    The real important part is defining the rectangle. Here the rectangle is (start_x, start_y, width, height).
+                  </li>
+                  <li>
+                    We then call in our main ‘grabCut’ function from the Open-CV library and pass in all the necessary parameters. You can head towards the official docs if you want to tinker around with the parameters.
+                  </li>
+                  <li>
+                    Lastly, we multiply with the input image, and we get our final result
+                  </li>
+                </ol>
+              </p>
+              <p>
+                <strong>Note: Find the proper coordinates for your image.</strong>
+              </p>
+              <br>
+              <p>
+                Foreground extraction was cool, right? Something similar to that is the <b>Background reduction</b>. It is nothing but reducing the background to the minimum by detecting motion. This is going to require us to use a video, or to have two images (One, with the absence of objects you want to track, and another with the presence of those same objects).
+              </p>
+              <p>
+                <code>
+                  #BACKGROUND REDUCTION<br>
+                  import numpy as np<br>
+                  import cv2<br><br>
+                  cap = cv2.VideoCapture(0)<br>
+                  foreground_model = cv2.createBackgroundSubtractorMOG2()<br><br>
+                  while(1):<br>
+                  &ensp;&ensp;&ensp;&ensp;ret, frame = cap.read()<br>
+                  &ensp;&ensp;&ensp;&ensp;foregroundmask = foreground_model.apply(frame)<br>
+                  &ensp;&ensp;&ensp;&ensp;cv2.imshow('frame',frame)<br>
+                  &ensp;&ensp;&ensp;&ensp;cv2.imshow('foreground',foregroundmask)<br><br>
+                  if cv2.waitKey(20) and 0xFF == ord('q'):<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;break<br><br>
+                  cap.release()<br>
+                  cv2.destroyAllWindows()
+                </code>
+              </p>
+              <p>
+                The code to do this is pretty straightforward and easy to understand. All we do is invoke the inbuilt ‘createBackgroundSubtractorMOG2()’ function and pass in the frame, of which we want to reduce the background.
+              </p>
+              <p>
+                <b>Morphological transformations</b> are simple operations that can be performed on an image based on its shape. It needs two inputs, one is our original image, the second one is called kernel which decides the nature of the operation. Two basic morphological operators are Erosion and Dilation. Then its variant forms like Opening, Closing etc also comes into play. We will see them one-by-one.
+              </p>
+              <p>
+                <code>
+                  #MORPHOLOGICAL TRANSFORMATION<br>
+                  import cv2<br>
+                  import numpy as np<br><br>
+                  cap = cv2.VideoCapture(0)<br><br>
+                  while True:<br>
+                  &ensp;&ensp;&ensp;&ensp;_, frame = cap.read()<br>
+                  &ensp;&ensp;&ensp;&ensp;hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)<br>
+                  &ensp;&ensp;&ensp;&ensp;color_value_1 = np.arrays([0, 0, 0])<br>
+                  &ensp;&ensp;&ensp;&ensp;color_value_2 = np.arrays([255, 255, 255])<br>
+                  &ensp;&ensp;&ensp;&ensp;mask = cv2.inRange(hsv, color_value_1, color_value_2)<br>
+                  &ensp;&ensp;&ensp;&ensp;result = cv2.bitwise_and(frame, frame, mask = mask)<br>
+                  &ensp;&ensp;&ensp;&ensp;kernel = np.ones((5,5), np.uint8)<br>
+                  &ensp;&ensp;&ensp;&ensp;eroded_img = cv2.erode(mask, kernel, iterations = 1)<br>
+                  &ensp;&ensp;&ensp;&ensp;dilated_img = cv2.dilate(mask, kernel, iterations = 1)<br>
+                  &ensp;&ensp;&ensp;&ensp;opening = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)<br>
+                  &ensp;&ensp;&ensp;&ensp;closing = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)<br><br>
+                  &ensp;&ensp;&ensp;&ensp;cv2.imshow('frame', frame)<br>
+                  &ensp;&ensp;&ensp;&ensp;cv2.imshow('result', result)<br>
+                  &ensp;&ensp;&ensp;&ensp;cv2.imshow('eroded_img', eroded_img)<br>
+                  &ensp;&ensp;&ensp;&ensp;cv2.imshow('dilated_img', dilated_img)<br>
+                  &ensp;&ensp;&ensp;&ensp;cv2.imshow('opening', opening)<br>
+                  &ensp;&ensp;&ensp;&ensp;cv2.imshow('closing', closing)<br><br>
+                  &ensp;&ensp;&ensp;&ensp;if waitKey(20) and 0xFF == ord('q'):<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;break<br><br>
+                  cv2.destroyAllWindows()<br>
+                  cap.release()<br>
+                </code>
+              </p>
+              <p>
+                Erosion is done by “eroding” the edges. We first create a slider and provide it with a window(5 x 5 pixels). Now as the slider slides on the image, if all of the pixels are white, then we get white, otherwise black. This helps in eliminating some of the white noise inside the image. Dilation, on the other hand, is doing the exact opposite of Erosion.
+              </p>
+              <p>
+                Next comes “opening” and “closing”. With Opening, all we do is remove “false positives”. The idea of “closing” is doing the exact opposite of “opening” i.e to remove “false negatives”.
+              </p>
+              <p>
+                <b><i>well well well!</i></b> Congratulations to you on reaching up till here. You now have a good deal of understanding and overview of how Open-CV works. The next topic(and the last topic of this post) is on recording videos. Yes, Recording videos through Open-CV might seem like a trivial task at first but unfortunately, it isn’t. So… Let’s dive in.
+              </p>
+              <p>
+                <code>
+                  #RECORDING VIDEOS<br>
+                  import os<br>
+                  import numpy as numpy<br>
+                  import cv2<br><br>
+                  filename = 'video.avi'<br><br>
+                  frames_per_seconds = 24.0<br><br>
+                  my_res = '720p'<br><br>
+                  cap = VideoCapture(0)<br><br>
+                  def change_resolution(cap, width, height):<br>
+                  &ensp;&ensp;&ensp;&ensp;cap.set(3, width)<br>
+                  &ensp;&ensp;&ensp;&ensp;cap.set(4, height)<br><br>
+                  STD_DIM = {<br>
+                  "480p" : (640, 480),<br>
+                  "720p" : (1280, 720),<br>
+                  "1080p" : (1920, 1080),<br>
+                  "4k" : (3840, 2160),<br>
+                  }<br><br>
+                  def set_dimensions(cap, res = '1080p'):<br>
+                  &ensp;&ensp;&ensp;&ensp;width, height = STD_DIM['480p'] <br>
+                  &ensp;&ensp;&ensp;&ensp;if res in STD_DIM:<br>
+                  &ensp;&ensp;&ensp;&ensp;width, height = STD_DIM[res]<br>
+                  &ensp;&ensp;&ensp;&ensp;change_resolution(cap, width, height)<br>
+                  &ensp;&ensp;&ensp;&ensp;return width, height<br><br>
+                  '''<br>
+                  Video Encoding, might require additional installs<br>
+                  Types of Codes: http://www.fourcc.org/codecs.php<br>
+                  also OpenCV 2 doesn't support cv2.VideoWriter_fourcc. Instead use cv2.cv.CV_FOURCC(*'XVID')<br>
+                  '''<br><br>
+                  VIDEO_TYPE = {<br>
+                  'avi' : cv2.VideoWriter_fourcc(*'XVID')<br>
+                  'mp4' : cv2.VideoWriter_fourcc(*'XVID')<br>
+                  'mp4' : cv2.VideoWriter_fourcc(*'H264')<br>
+                  }<br><br>
+                  def set_videotype(filename):<br>
+                  &ensp;&ensp;&ensp;&ensp;filename, ext = os.path.splitext(filename)<br>
+                  &ensp;&ensp;&ensp;&ensp;if ext in VIDEO_TYPE:<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;return VIDEO_TYPE[ext]<br>
+                  &ensp;&ensp;&ensp;&ensp;return (VIDEO_TYPE['avi'])<br><br>
+                  dims = set_dimensions(cap, res = my_res)<br>
+                  video_type_cv2 = set_videotype(filename)<br><br>
+                  out = cv2.VideoWriter(filename, video_type_cv2, frames_per_seconds, dims)<br><br>
+                  while True:<br>
+                  &ensp;&ensp;&ensp;&ensp;ret, frame = cap.read()<br>
+                  &ensp;&ensp;&ensp;&ensp;out.write(frame)<br>
+                  &ensp;&ensp;&ensp;&ensp;cv2.imshow('frame', frame)<br><br>
+                  if cv2.waitKey(20) and 0xFF == ord('q'):<br>
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;break<br><br>
+                  cap.release()<br>
+                  out.release()<br>
+                  cv2.destroyAllWindows()<br>
+                </code>
+              </p>
+              <p>
+                Breaking down the code piece by piece we get:
+              </p>
+              <p>
+                <ol>
+                  <li>
+                    The first part of the code is defining all the necessary parameters i.e. resolution, file name, Rate of Frames Per Second(FPS) etc along with importing all the necessary libraries
+                  </li>
+
+                  <li>
+                    In the next part of the code, we define a dictionary containing all the possible resolutions with their respective heights and widths. Creating a function that sets those resolutions and defaulting it to 1080p.
+                  </li>
+
+                  <li>
+                    We define another dictionary that contains values for different video types and define a ‘set_videotype’ function that returns the type of video file format.
+                  </li>
+
+                  <li>
+                    Final move will be to invoke our main function(‘cv2.VideoWriter’) and pass in all the necessary parameters.
+                  </li>
+
+                  <li>
+                    Last but not least, we write the output of the ‘cv2.VideoWriter’ function to a new frame inside a loop.
+                  </li>
+                </ol>
+              </p>
+              <p>
+                That’ll be it for this blog post, folks !!! Congratulations for making it this far.
+              </p>
+              <p>
+                I have a <a href="https://github.com/Ishan3333/Open_CV_basics">Github repository</a> which contains all of the above code in a very well commented structure. The repository also contains all of the resources that I have used to learn Open-CV.
+              </p>
+              <p>
+                Stay tuned. Until next time…!
+              </p>
+            </div> <!-- .col-md-8 -->
+          </div>
+        </div>
+      </section>
+      
+      <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+          <div class="row mb-5 justify-content-center">
+            <div class="col-md-5 text-center">
+              <div class="ftco-footer-widget mb-5">
+                <ul class="ftco-footer-social list-unstyled">
+                  <li class="ftco-animate"><a href="https://www.linkedin.com/in/ishan-dixit-89012275/" target="_blank"><span class="icon-linkedin"></span></a></li>
+                  <li class="ftco-animate"><a href="https://medium.com/@ishan.cdixit", target="_blank"><span class="icon-medium"></span></a></li>
+                  <li class="ftco-animate"><a href="https://github.com/DixitIshan", target="_blank"><span class="icon-github"></span></a></li>
+                </ul>
+              </div>
+              <div class="ftco-footer-widget">
+                <h2 class="mb-3">Contact</h2>
+                <p class="h3 email"><a href="#">ishan.cdixit@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <!-- loader -->
+      <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+      </div>
+
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/main.js"></script>
+    
+  </body>
+</html>
