@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <div class="KW_progressContainer">
+      <div class="KW_progressBar">
+
+      </div>
+    </div>
+    <div class="page">
+    <nav id="colorlib-main-nav" role="navigation">
+      <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
+      <div class="js-fullheight colorlib-table">
+      	<div class="img" style="background-image: url(../images/ishan2.jpg);"></div>
+        <div class="colorlib-table-cell js-fullheight">
+          <div class="row no-gutters">
+            <div class="col-md-12 text-center">
+              <h1 class="mb-4"><a href="../index.html" class="logo">Ishan Dixit</a></h1>
+              <ul>
+                <li><a href="../index.html"><span><small>01</small>Home</span></a></li>
+                <li><a href="../about.html"><span><small>02</small>Resume</span></a></li>
+                <li><a href="../portfolio.html"><span><small>03</small>Portfolio</span></a></li>
+                <li class="active"><a href="blog.html"><span><small>04</small>Blog</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="colorlib-page">
+      <header>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="colorlib-navbar-brand">
+                <a class="colorlib-logo" href="index.html"><span class="logo-img" style="background-image: url(../images/ishan2.jpg);"></span>Ishan Dixit</a>
+              </div>
+              <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="ftco-section">
+        <div class="container mt-5">
+        	<div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+              <span>Blog</span>
+              <h2>Musings of a Developer</h2>
+            </div>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+              <h2 class="mb-3">Debunking Artificial Neural Networks (ANN) with practical examples</h2>
+              <p>
+                <!-- <img src="1_BIpRgx5FsEMhr1k2EqBKFg.gif"> -->
+              </p>
+              <p>
+                Hello and Welcome to the first post of ‘Debunking Neural Networks’ series. In this series, we will try to understand the underlying mechanisms and concepts of the black box that Deep Learning is. Not only will we try to understand how Deep Learning works but also implement it with our very own computer!
+              </p>
+              <p>
+                Deep Learning has taken the world by storm these days. From powering Google’s search engine to estimating time for your Uber deliveries, Deep Learning has proven its potential to change the way technology works.
+              </p>
+              <p>
+                <mark>What is Deep Learning???</mark>
+              </p>
+              <p>
+                Deep learning is a subfield of machine learning which tries to mimic human intelligence with the help of data. <b>LEARNING BY EXAMPLE.</b> 
+              </p>
+              <p>
+                <h5><strong>Deep Learning, if given lots of data and computation power, outperforms almost every other traditional Machine Learning algorithm. This makes DL a prime candidate to approach in creating cutting edge solutions.</strong></h5>
+              </p>
+              <p>
+                <b>So what drives Deep Learning???</b>
+              </p>
+              <p>
+                At the heart of Deep Learning is a novel Mathematical Architecture known as <b>Neural Network</b>. As the name suggests, these Neural Networks are inspired by the Biological Neurons. A <b><i><a href="https://en.wikipedia.org/wiki/Neuron">Neuron</a></i></b> is an electrically excitable cell that receives, processes and transmits information through electrical signals. <b>An <a href="https://en.wikipedia.org/wiki/Artificial_neuron"><i>artificial neuron</i></a> is a mathematical function representing a model of a biological neuron</b>. A very simple ANN is shown below. It contains one input layer of 3 input nodes, 2 hidden layers with 4 nodes each and an output node. You can find a slightly more complex Neural Network structure <a href="https://cdn-images-1.medium.com/max/1200/1*-abk643OlEr7fEYtCT1M3A.png"><i>here</i></a>.
+              </p>
+              <p>
+                some image here
+              </p>
+              <p>
+                Dwelling into the mathematical details of an ANN is beyond the scope of this post. That is precisely why I would like to direct you all to <a href="https://www.codeproject.com/Articles/1261763/ANNT-Feed-forward-fully-connected-neural-networks"><b><i>this article</i></b></a>. It describes a brief history of ANN’s, all the necessary Mathematics involved in them, important terminologies, etc. It is a must-read article for everyone who wants to truly understand what happens behind the scene of such an exciting Technology.
+              </p>
+              <p>
+                Enough with the introduction, hype, and theories. Time to get our hands dirty! We will start by creating a virtual environment and installing all the necessary modules.
+              </p>
+              <p>
+                <b>Note: This post assumes that you have familiarity with Python Language.</b>
+              </p>
+              <p>
+                To start working with DL we need to create an environment in which we can install all the necessary libraries. Working with virtual environments is the best way to ensure that none of your installation mess up the entire system! Follow the steps below to replicate a Virtual Environment that I have used for these projects.
+              </p>
+              <p>
+                <ul>
+                  <li>
+                    Create a Virtual Environment with this command. You will need to have venv installed for it to work.
+                  </li>
+                </ul>
+              </p>
+              <p>
+                <code>
+                  python3 -m venv keras_venv
+                </code>
+              </p>
+              <p>
+                <ul>
+                  <li>
+                    Activate the virtual environment.
+                  </li>
+                </ul>
+              </p>
+              <p>
+                <code>
+                  source /path/to/your/venv/bin/activate
+                </code>
+              </p>
+              <p>
+                <ul>
+                  <li>
+                    Install all the necessary library modules for this project to work with the help of this command.
+                  </li>
+                </ul>
+              </p>
+              <p>
+                <code>
+                  pip install numpy scipy scikit-learn pandas matplotlib seaborn pillow keras
+                </code>
+              </p>
+              <p>
+                We are going to use Tensorflow as the backend to Keras Library. Tensorflow comes in 2 variants i.e. CPU only and CPU+GPU. The former variant is easy to install with just adding ‘TensorFlow’ at the end of the above pip install command. However, the latter variant is not that easy to install. You will need to have CUDA enabled GPU/’s for it to work. You will have to install necessary CUDA libraries and see if the TF version is compatible with those or not. You can find some really nice tutorials on how to install TF GPU by just looking it up on the internet. I’ll leave that part up to you.
+              </p>
+              <p>
+                <b>A primer on TensorFlow & Keras:</b>
+              </p>
+              <p>
+                Tensorflow is an opensource Machine Learning framework by Google. It is currently the most preferred ML/DL framework to work with by not only beginners but also Industrial veterans. Many of the established companies in different industries, today, use TF to power their AI needs. Google itself utilizes TF across a majority of its product lines. While TF is an amazing framework to work with, it can be a little tricky to wrap one’s mind around. It's almost writing another Language inside/with Python. Keras is a high-level library built on top of Tensorflow. It abstracts off almost all the unnecessary complexities that accompany along with TF. It is really easy to understand and implement, has amazing documentations and is updated regularly. Owing to all these attributes Keras is the go-to library for quick prototyping of a Neural Network project.
+              </p>
+              <p>
+                That’s it. Your DL environment is ready to rumble!
+              </p>
+              <p>
+                This post is divided into 3 sections each with its own problem statement.
+              </p>
+              <p>
+                <h4>Regression:</h4>
+              </p>
+              <p>
+                Regression is about predicting a real OR continuous quantity such as ‘salary’ or ‘price’ or ‘weight’. Predicting the price of a stock at a given time based on the previous pattern, predicting the price of a real estate property into the future, predicting the salary of an employee based on data from a previous company, etc can be categorized into Regression problems. The Regression problem comes under the Supervised Learning category. In ML there are Linear models to solve Linear problems and Non-Linear models to solve Non-Linear problems. I would highly suggest you go through these models to get a better understanding of the Math behind them. It also helps in building up the intuition. Here we will try to <b>solve a Simple Linear Regression problem with ANN</b>.
+              </p>
+              <p>
+                <script src="https://gist.github.com/DixitIshan/6003f552af95993f4939512b0c819fff.js"></script>
+              </p>
+              <p>
+                The code in itself is quite well commented from my side but we will still try to simplify it by breaking it down piece by piece
+              </p>
+              <p>
+                <b>
+                  Breaking down the code:
+                </b>
+              </p>
+              <p>
+                Lines 1–8 deals with importing all the necessary modules and libraries. Numpy is used for numerical computations, Pandas for data manipulation, Sklearn for data creation and preprocessing and finally Keras for creating the ANN model.
+              </p>
+              <p>
+                <code>
+                  import numpy as np<br>
+                  import pandas as pd<br><br>
+                  from keras.models import Sequential<br>
+                  from keras.layers import Dense, Dropout<br><br>
+                  from sklearn.preprocessing import MinMaxScaler<br>
+                  from sklearn.datasets import make_regression<br>
+                </code>
+              </p>
+              <p>
+                Line 10–21 deals with creating a random blob of data suitable for making a regression prediction and scaling it. Scaling the input data is a necessary step in some datasets because of its high variability. Scaling the dataset makes the model less prone to outliers.
+              </p>
+              <p>
+                <code>
+                  X, Y = make_regression(n_samples=100, n_features=4, noise=0.1, random_state=1)<br><br>
+                  scaled_X = MinMaxScaler()<br>
+                  scaled_Y = MinMaxScaler()<br><br>
+                  scaled_X.fit(X)<br>
+                  scaled_Y.fit(Y.reshape(100, 1))<br><br>
+                  X = scaled_X.transform(X)<br>
+                  Y = scaled_Y.transform(Y.reshape(100, 1))<br>
+                </code>
+              </p>
+              <p>
+                On line 23–24 we initialize the instance of a model
+              </p>
+              <p>
+                <code>
+                  model = Sequential()
+                </code>
+              </p>
+              <p>
+                From lines 26–42 we actually create our ANN model with Dense networks. Notice after every layer of a dense neural network we add another line with the Dropout method. The Dropout method in Keras randomly drops nodes from the layer. This is done in order to avoid overfitting in our model.<b>Overfitting means that the model does not learn from the feature input but instead, it starts remembering the entire data destroying the model’s generalization capability</b>. The last Dense layer will contain only one node which corresponds to only one real-valued output of the regression task.
+              </p>
+              <p>
+                <code>
+                  model.add(Dense(units = 32, input_dim = 4, activation = 'relu'))<br>
+                  model.add(Dropout(0.10))<br><br>
+                  model.add(Dense(units = 32, activation = 'relu'))<br>
+                  model.add(Dropout(0.20))<br><br>
+                  model.add(Dense(units = 32, activation = 'relu'))<br>
+                  model.add(Dropout(0.20))<br><br>
+                  model.add(Dense(units = 1, activation = 'linear'))
+                </code>
+              </p>
+              <p>
+                In the next five lines, we compile the created model with a few parameters like losses, optimizers, etc. Let’s try to briefly understand what some of these terms mean.
+              </p>
+              <p>
+                <ol>
+                  <li>
+                    Loss- Also known as cost function or error function is a method to evaluate the model’s prediction capability. The higher the loss function the lower the model’s performance. <a href="https://keras.io/losses/">Available losses in Keras</a>.
+                  </li>
+                  <li>
+                    Optimizer- Training a Neural network is all about minimizing the cost function and also minimizing the difference between actual output and expected output. Optimizers tie together the loss function and model parameters by updating the model in response to the output of the loss function. <a href="https://keras.io/optimizers/">Available Optimizers in Keras</a>.
+                  </li>
+                  <li>
+                    Epoch- Number of iteration for which the Neural Network is trained before finalizing the output.
+                  </li>
+                </ol>
+              </p>
+              <p>
+                <code>
+                  model.compile(loss='mse', optimizer='adam', metrics = ['mae'])<br><br>
+                  model.fit(X, Y, epochs = 100, verbose = 0)
+                </code>
+              </p>
+              <p>
+                <b><i>I would still press on reading <a href="https://www.codeproject.com/Articles/1261763/ANNT-Feed-forward-fully-connected-neural-networks">this article</a> thoroughly for a better understanding of all of these important ML terminologies.</i></b>
+              </p>
+              <p>
+                That’s it. Our model is ready to make predictions. In the last part of this code, we create yet another blob of random data, one that the model has not been trained on, and test our small yet powerful model on it to see how it performs.
+              </p>
+              <p>
+                <code>
+                  Xnew, a = make_regression(n_samples=3, n_features=4, noise=0.1, random_state=1)<br><br>
+                  Xnew = scaled_X.transform(Xnew)<br><br>
+                  ynew = model.predict(Xnew)<br><br>
+                  for i in range(len(Xnew)):<br>
+                      &ensp;&ensp;&ensp;&ensp;&ensp;print("X =",Xnew[i], ",", "Predicted =",ynew[i])
+                </code>
+              </p>
+              <p>
+                Output:
+                some image here
+                some image here
+              </p>
+              <p>
+                <h4>Binary Classification:</h4>
+              </p>
+              <p>
+                A Classification problem is about categorizing observations into discrete classes. Unlike Regression, where the output is a real value, Classification outputs have distinct probabilistic categorizations such as ‘Blue/Red’, ‘Yes/No, ‘Male/Female’ etc. One great example to understand Classification would be classifying mail into ‘Spam/Not Spam’. <b>Binary classification is thus classifying observations into two discrete classes</b>. In traditional Machine Learning, there are a lot of good algorithms to perform classification task eg. Support Vector Classification, K Nearest Neighbor, Logistic Regression, Decision Tree, Random Forest, etc. Here we will try to solve it with feature-based Deep Learning using ANN.
+              </p>
+              <p>
+                <script src="https://gist.github.com/DixitIshan/3d6f6f6f5f922b927c088d0fdabfec43.js"></script>
+              </p>
+              <p>
+                <b>
+                  Breaking down the code:
+                </b>
+              </p>
+              <p>
+                As one can already infer, this piece of program is quite similar to that of Regression. We first import all the necessary Libraries.
+              </p>
+              <p>
+                <code>
+                  import pandas as pd<br><br>
+                  from keras.models import Sequential
+                  from keras.layers  import Dense, Dropout<br><br>s
+                  df = pd.read_csv('pima-indians-diabetes.csv')<br><br>
+                  X = df.iloc[:,0:8].values
+                  Y = df.iloc[:,8].values
+                </code>
+              </p>
+              <p>
+                Next up we initiate the model instance and add in 3 layers of 32 and 64 nodes along with Dropout method. The last layer will be the output layer with the number of units totaling the number of desired outputs.
+              </p>
+              <p>
+                <code>
+                  classifier = Sequential()<br><br>
+                  classifier.add(Dense(units = 32, activation = 'relu', input_dim = 8))
+                  classifier.add(Dropout(0.10))<br><br>
+                  classifier.add(Dense(units = 64, activation = 'relu'))
+                  classifier.add(Dropout(0.20))<br><br>
+                  classifier.add(Dense(units = 64, activation = 'relu'))
+                  classifier.add(Dropout(0.10))<br><br>
+                  classifier.add(Dense(units = 1, activation = 'sigmoid'))
+                </code>
+              </p>
+              <p>
+                We then compile the model with a ‘Binary Corssentropy’ loss and the ‘Adam’ optimizer. Fitting the model onto the training dataset will be the next step.
+              </p>
+              <p>
+                <code>
+                  classifier.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])<br><br>
+                  classifier.fit(X, Y, batch_size=30, epochs=200, verbose=1)
+                </code>
+              </p>
+              <p>
+                For evaluating our model we will invoke the ‘.evaluate’ method from Keras and output the resulting scores of our trained model’s accuracy and losses.
+              </p>
+              <p>
+                <code>
+                  score = classifier.evaluate(X, Y, verbose=0)<br>
+                  print ('test_loss:', score[0])<br>
+                  print ('test_acc:', score[1])<br>
+                </code>
+              </p>
+              <p>
+                Output:
+                some image here
+              </p>
+              <p>
+                <h4>Multi-Class Classification:</h4>
+              </p>
+              <p>
+                A multi-class classification problem is exactly the same as a binary classification problem with the only difference being the number of observational classes. A binary classification model categorizes the output into two distinct classes. A multi-class classification model can categorize the output into many more classes. A good example to understand this would be categorizing a given fruit into one of the 5 different classes namely: ‘Apple’, ‘Orange’, ‘Banana’, ‘Kiwi’ or ‘Melon’. The algorithm can decide to categorize the fruit into one of the 5 categories based on its features like ‘shape’, ‘color’, ‘size’, etc. Below is an example of how Deep Learning will try to solve this type of classification problem using ANN.
+              </p>
+              <p>
+                <script src="https://gist.github.com/DixitIshan/c6fe5e31445a43bd8e5a4011ddd0b19a.js"></script>
+              </p>
+              <p>
+                <b>
+                  Breaking down the code:
+                </b>
+              </p>
+              <p>
+                The first and foremost part of any Python program is generally to import all the necessary libraries. From lines 1–5 we do this same thing.
+              </p>
+              <p>
+                <code>
+                  from keras.models import Sequential<br>
+                  from keras.layers import Dense, Dropout<br>
+                  from keras.preprocessing.text import Tokenizer<br>
+                  from keras.utils.np_utils import to_categorical<br><br>
+                  from keras.datasets import reuters
+                </code>
+              </p>
+              <p>
+                Now, this particular dataset will require a little bit of text pre-processing before it can be fed to our model. The only preprocessing required here will be to convert the input data to a tokenized form and then to categorical form. This is done because we want our output in a multi-class classification format.
+              </p>
+              <p>
+                <code>
+                  num_features = 5000<br><br>
+                  (train_x, train_y), (test_x, test_y) = reuters.load_data(num_words = num_features)<br><br>
+                  tokenizer = Tokenizer(num_words = num_features)<br><br>
+                  train_x = tokenizer.sequences_to_matrix(train_x, mode = 'binary')<br><br>
+                  test_x = tokenizer.sequences_to_matrix(test_x, mode = 'binary')<br><br>
+                  train_y = to_categorical(train_y)<br><br>
+                  test_y = to_categorical(test_y)
+                </code>
+              </p>
+              <p>
+                On line 29 we Initiate our model instance. From lines 31–54 we create our model. We add a few layers of Densely connected networks along with the dropout method from Keras to avoid overfitting. In line 57 we add in our last layer of output. Notice that the number of nodes(units) is remarkably more than that of the previous problems. This is where the name “Multi-Class” comes from. We try to segregate the input data into one of the following 46 probabilistic output scenarios.
+              </p>
+              <p>
+                <code>
+                  model = Sequential()<br><br>
+                  model.add(Dense(units = 32, input_shape = (num_features, ),activation = 'relu'))<br>
+                  model.add(Dropout(0.15))<br><br>
+                  model.add(Dense(units = 32, activation = 'relu'))<br>
+                  model.add(Dropout(0.15))<br><br>
+
+                  model.add(Dense(units = 32, activation = 'relu'))<br>
+                  model.add(Dropout(0.15))<br><br>
+                  model.add(Dense(units = 32, activation = 'relu'))<br>
+                  model.add(Dropout(0.15))<br><br>
+                  model.add(Dense(units = 32, activation = 'relu'))<br>
+                  model.add(Dropout(0.15))<br><br>
+                  model.add(Dense(units = 46, activation = 'softmax'))
+                </code>
+              </p>
+              <p>
+                Finally. We compile our model with loss as ‘Categorical Crossentropy’ instead of ‘Binary Crossentropy’. This change is done because our data is categorical in nature. Our next step will be to fit the data on the training features and training labels for as long as 50 iterations. This will output the final result.
+              </p>
+              <p>
+                <code>
+                  model.compile(loss = 'categorical_crossentropy', optimizer = 'rmsprop', metrics = ['accuracy'])<br><br>
+                  model.fit(train_x, train_y, batch_size = 100, epochs = 50, validation_data = (test_x, test_y), verbose = 1)
+                </code>
+              </p>
+              <p>
+                Output:
+                some image here
+              </p>
+              <p>
+                That’s it, folks. Pat yourself on the back. You made it through the entire article.
+              </p>
+              <p>
+                <strong>
+                  Summary of what we did:
+                </strong>
+                <ol>
+                  <li>
+                    What Deep Learning is and how is it different from Machine Learning.
+                  </li>
+                  <li>
+                    What are Keras and Tensorflow?
+                  </li>
+                  <li>
+                    How to set up a local Deep Learning Environment in our own system.
+                  </li>
+                  <li>
+                    How to use ANN for Regression, Binary Classification, and Multi-class Classification
+                  </li>
+                </ol>
+              </p>
+              <p>
+                You can find a well commented and structured code along with reference notes on <a href="https://github.com/DixitIshan/Deep_Learning_with_Keras">my Github</a>. Make sure to check it out.
+              </p>
+              <p>
+                Ciao Adios ! Until next time. !!!
+              </p>
+            </div> <!-- .col-md-8 -->
+
+          </div>
+        </div>
+      </section>
+      
+      <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+          <div class="row mb-5 justify-content-center">
+            <div class="col-md-5 text-center">
+              <div class="ftco-footer-widget mb-5">
+                <ul class="ftco-footer-social list-unstyled">
+                  <li class="ftco-animate"><a href="https://www.linkedin.com/in/ishan-dixit-89012275/" target="_blank"><span class="icon-linkedin"></span></a></li>
+                  <li class="ftco-animate"><a href="https://medium.com/@ishan.cdixit", target="_blank"><span class="icon-medium"></span></a></li>
+                  <li class="ftco-animate"><a href="https://github.com/DixitIshan", target="_blank"><span class="icon-github"></span></a></li>
+                </ul>
+              </div>
+              <div class="ftco-footer-widget">
+                <h2 class="mb-3">Contact</h2>
+                <p class="h3 email"><a href="#">ishan.cdixit@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <!-- loader -->
+      <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+      </div>
+
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/main.js"></script>
+    
+  </body>
+</html>
