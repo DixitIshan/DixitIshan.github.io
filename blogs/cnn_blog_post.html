@@ -80,6 +80,7 @@
               <h2 class="mb-3">Debunking Convolutional Neural Networks (CNN) with practical examples</h2>
               <p>
                 <!-- <img src="1_BIpRgx5FsEMhr1k2EqBKFg.gif"> -->
+                <img src="../images/1_BIpRgx5FsEMhr1k2EqBKFg.gif" alt="" class="img-fluid">
               </p>
               <p>
                 Hello and welcome to the second post on <b>Debunking Neural Network series</b>.<a href="https://medium.com/datadriveninvestor/debunking-artificial-neural-networks-ann-with-practical-examples-8d3265f69a54">In the previous post</a>, we saw what is Deep Learning and how it is radically transforming industries. Next, we had a look at Artificial Neural Networks which are the driving forces behind the immense potential of DL. Then we also had a brief look at Google’s Deep Learning framework called Tensorflow. To make things a little bit easy we utilized Keras’ powerful interface for Tensorflow to construct our programs. Finally, we had a look at how Artificial Neural Networks & DL can be used to solve seemingly difficult problems such as predicting housing prices, classifying mail as a Spam/not spam.
@@ -94,7 +95,7 @@
                 <h4><b>A Primer on CNN’s:</b><h4>
               </p>
               <p>
-                <img src="/home/freako/Downloads/1_u2FJVJpUtXN0IHSelbI94A.jpeg" alt="" class="img-fluid">
+                <img src="../images/1_u2FJVJpUtXN0IHSelbI94A.jpeg" alt="" class="img-fluid">
               </p>
               <p>
                 There are four main operations in the ConvNet shown above:
@@ -110,7 +111,7 @@
                 Every image can be represented as a matrix of pixel values. The primary purpose of Convolution in the case of a ConvNet is to extract features from the input image. Convolution preserves the spatial relationship between pixels by learning image features using small squares of input data. Convolution operation can be understood using the animation.
               </p>
               <p>
-                <img src="./1_MK7oxI3RZ4_nlMm6bZTQ4A.gif" alt="" class="img-fluid">
+                <img src="../images/1_MK7oxI3RZ4_nlMm6bZTQ4A.gif" alt="" class="img-fluid">
               </p>
               <p>
                 In CNN terminology, the 3×3 matrix is called a <b>‘filter‘/‘kernel’/‘feature detector’</b> and the matrix formed by sliding the filter over the image and computing the dot product is called the <b>‘Convolved Feature’/‘Activation Map’/‘Feature Map‘</b>.
@@ -120,7 +121,7 @@
                 ReLU stands for the Rectified Linear Unit and it is a Non-Linear Mathematical operation. ReLU is an element-wise operation (applied per pixel) and replaces all negative pixel values in the feature map by zero. The purpose of ReLU is to introduce non-linearity in our ConvNet since the Convolution operation itself is a linear operation, so we account for non-linearity by introducing a non-linear function.
               </p>
               <p>
-                <img src="./1_mx9H4SupAed4coT0oaz_5A.png" alt="" class="img-fluid">
+                <img src="../images/1_mx9H4SupAed4coT0oaz_5A.png" alt="" class="img-fluid">
               </p>
               <p>
                 <h5><b>STEP-3: Pooling</b></h5>
@@ -129,14 +130,14 @@
                 Pooling is a form of dimensionality reduction technique. Pooling reduces the dimensionality of each feature map while retaining the crucial information. Pooling can be of different types: Max, Average, Sum, etc. Below shows an example of Max Pooling operation on a Rectified Feature map (obtained after convolution + ReLU operation) by using a 2×2 window.
               </p>
               <p>
-                <img src="./1_8hgpGxHYcX22zQuvTLLOZQ.png" alt="" class="img-fluid">
+                <img src="../images/1_8hgpGxHYcX22zQuvTLLOZQ.png" alt="" class="img-fluid">
               </p>
               <h5><b>STEP-4: Classification</b></h5>
               <p>
                 The Fully Connected layer is nothing but a simple Multi-Layer Perceptron that uses a softmax activation function in the output layer. The purpose of this Fully Connected layer is to use high-level features, abstracted from previous layers, to classify the input image into various classes based on the training dataset. Traditional Machine Learning classifiers (SVM, Logistic regression) can also be used.
               </p>
               <p>
-                <img src="./1_ocZWgUk2pPHiB6FB2q_5WA.png" alt="" class="img-fluid">
+                <img src="../images/1_ocZWgUk2pPHiB6FB2q_5WA.png" alt="" class="img-fluid">
               </p>
               <p>
                 The above explanation is a very brief overview of the terminologies used in CNN’s understanding. I would highly encourage you to look at the reference section of this post and go through all the mentioned articles thoroughly to get a strong understanding of all the underlying principles of CNN before starting to code.
