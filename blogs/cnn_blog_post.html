@@ -83,7 +83,7 @@
                 <img src="../images/1_BIpRgx5FsEMhr1k2EqBKFg.gif" alt="" class="img-fluid">
               </p>
               <p>
-                Hello and welcome to the second post on <b>Debunking Neural Network series</b>.<a href="https://medium.com/datadriveninvestor/debunking-artificial-neural-networks-ann-with-practical-examples-8d3265f69a54">In the previous post</a>, we saw what is Deep Learning and how it is radically transforming industries. Next, we had a look at Artificial Neural Networks which are the driving forces behind the immense potential of DL. Then we also had a brief look at Google’s Deep Learning framework called Tensorflow. To make things a little bit easy we utilized Keras’ powerful interface for Tensorflow to construct our programs. Finally, we had a look at how Artificial Neural Networks & DL can be used to solve seemingly difficult problems such as predicting housing prices, classifying mail as a Spam/not spam.
+                Hello and welcome to the second post on <b>Debunking Neural Network series</b> <a href="https://medium.com/datadriveninvestor/debunking-artificial-neural-networks-ann-with-practical-examples-8d3265f69a54">In the previous post</a>, we saw what is Deep Learning and how it is radically transforming industries. Next, we had a look at Artificial Neural Networks which are the driving forces behind the immense potential of DL. Then we also had a brief look at Google’s Deep Learning framework called Tensorflow. To make things a little bit easy we utilized Keras’ powerful interface for Tensorflow to construct our programs. Finally, we had a look at how Artificial Neural Networks & DL can be used to solve seemingly difficult problems such as predicting housing prices, classifying mail as a Spam/not spam.
               </p>
               <p>
                 All those examples we saw in the last post were, in some or the other form of text and numbers. But have you ever wondered how would these Neural Networks perform if the data is in the form of Images or Videos? This post will be about that special type of Neural Network called <b><i>Convolutional Neural Networks</i></b> which are the go-to architecture when working with images.
@@ -173,7 +173,11 @@
                 </p>
               </p>
               <code>
-                some code here
+                from keras.models import Sequential<br>
+                from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout<br>
+                from keras.preprocessing.image import ImageDataGenerator<br>
+                from keras.callbacks import EarlyStopping<br>
+                import matplotlib.pyplot as plt<br><br>
               </code>
               <p>
                 After importing the modules we initiate a Sequential model instance from Keras and add Convolutional layers, Pooling layers, and the FC layers. On line 22 we add our first Convolutional Layer with the following parameters:
@@ -194,7 +198,23 @@
               </p>
               <p>
                 <code>
-                  some code here
+                  classifier = Sequential()<br><br>
+                  classifier.add(Conv2D(32,(3, 3), input_shape=(64, 64, 3),activation='relu'))<br>
+                  classifier.add(MaxPooling2D(pool_size = (2, 2)))<br>
+                  classifier.add(Dropout(0.25))<br><br>
+                  classifier.add(Conv2D(32, (3, 3), activation = 'relu'))<br>
+                  classifier.add(MaxPooling2D(pool_size = (2, 2)))<br>
+                  classifier.add(Dropout(0.25))<br><br>
+                  classifier.add(Conv2D(64, (3, 3), activation = 'relu'))<br>
+                  classifier.add(MaxPooling2D(pool_size = (2, 2)))<br>
+                  classifier.add(Dropout(0.25))<br><br>
+                  classifier.add(Conv2D(128, (3, 3), activation = 'relu'))<br>
+                  classifier.add(MaxPooling2D(pool_size = (2, 2)))<br>
+                  classifier.add(Dropout(0.25))<br><br>
+                  classifier.add(Flatten())<br><br>
+                  classifier.add(Dense(units = 128, activation = 'relu'))
+                  classifier.add(Dropout(0.25))<br>
+                  classifier.add(Dense(units = 1, activation = 'sigmoid'))<br><br>
                 </code>
               </p>
               <p>
@@ -202,7 +222,11 @@
               </p>
               <p>
                 <code>
-                  some code here
+                  classifier.compile(<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;optimizer = 'adam',<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;loss = 'binary_crossentropy',<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;metrics = ['accuracy']<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;)<br>
                 </code>
               </p>
               <p>
@@ -210,7 +234,19 @@
               </p>
               <p>
                 <code>
-                  some code here
+                  train_datagen = ImageDataGenerator(<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;rescale=1./255,<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;shear_range=0.2,<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;zoom_range=0.2,<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;horizontal_flip=True,<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;vertical_flip = True<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;)<br><br>
+                  training_set = train_datagen.flow_from_directory(<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'../dataset/training_set',<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;target_size=(64, 64),<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;batch_size=32,<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;class_mode='binary'<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;)<br>
                 </code>
               </p>
               <p>
@@ -218,7 +254,13 @@
               </p>
               <p>
                 <code>
-                  some code here
+                  test_datagen = ImageDataGenerator(rescale=1./255)<br><br>
+                  test_set = test_datagen.flow_from_directory(<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;'../dataset/test_set',<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;target_size=(64, 64),<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;batch_size=32,<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;class_mode='binary'<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;)<br>
                 </code>
               </p>
               <p>
@@ -229,7 +271,17 @@
               </p>
               <p>
                 <code>
-                  some code here
+                  VALIDATION_PATIENCE = 3<br>
+                  stopper = EarlyStopping(monitor='val_loss', patience=VALIDATION_PATIENCE)<br><br>
+                  classifier.fit_generator(<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;training_set,<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;steps_per_epoch=8000,<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;callbacks = [stopper],<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;epochs=25,<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;validation_data=test_set,<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;validation_steps=2000,<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;use_multiprocessing = True<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;)<br><br>
                 </code>
               </p>
               <p>
@@ -249,7 +301,11 @@
               </p>
               <p>
                 <code>
-                  SOME CODE HERE
+                  from keras .models import Sequential<br>
+                  from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout<br>
+                  from keras.utils import np_utils<br>
+                  from keras.callbacks import EarlyStopping<br>
+                  import matplotlib.pyplot as plt<br>
                 </code>
               </p>
               <p>
@@ -257,7 +313,14 @@
               </p>
               <p>
                 <code>
-                  SOME CODE HERE
+                  from keras.datasets import cifar100<br><br>
+                  (X_train, y_train), (X_test, y_test) = cifar100.load_data(label_mode='fine')<br><br>
+                  X_train = X_train.reshape(X_train.shape[0], 32, 32, 3)<br>
+                  X_test = X_test.reshape(X_test.shape[0], 32, 32, 3)<br><br>
+                  X_train = X_train.astype('float32')/255<br>
+                  X_test = X_test.astype('float32')/255<br><br>
+                  y_train = np_utils.to_categorical(y_train, 100)<br>
+                  y_test = np_utils.to_categorical(y_test, 100)<br><br>
                 </code>
               </p>
               <p>
@@ -265,7 +328,24 @@
               </p>
               <p>
                 <code>
-                  SOME CODE HERE
+                  classifier = Sequential()<br><br>
+                  classifier.add(Conv2D(64, (3, 3), activation = 'relu', input_shape = (32, 32, 3)))<br>
+                  classifier.add(MaxPooling2D(pool_size = (2, 2)))<br>
+                  classifier.add(Dropout(0.25))<br><br>
+                  classifier.add(Conv2D(64, (3, 3), activation = 'relu'))<br>
+                  classifier.add(MaxPooling2D(pool_size = (2, 2)))<br>
+                  classifier.add(Dropout(0.25))<br><br>
+                  classifier.add(Conv2D(128, (3, 3), activation = 'relu'))<br>
+                  classifier.add(MaxPooling2D(pool_size = (2, 2)))<br>
+                  classifier.add(Dropout(0.25))<br><br>
+                  classifier.add(Flatten())<br><br>
+                  classifier.add(Dense(units = 128, activation = 'relu'))<br>
+                  classifier.add(Dropout(0.25))<br><br>
+                  classifier.add(Dense(units = 128, activation = 'relu'))<br>
+                  classifier.add(Dropout(0.25))<br><br>
+                  classifier.add(Dense(units = 128, activation = 'relu'))<br>
+                  classifier.add(Dropout(0.25))<br><br>
+                  classifier.add(Dense(units = 100, activation = 'softmax'))<br><br>
                 </code>
               </p>
               <p>
@@ -273,7 +353,12 @@
               </p>
               <p>
                 <code>
-                  SOME CODE HERE
+                  epochs = 10000<br>
+                  batch_size = 256<br>
+                  VALIDATION_PATIENCE = 20<br>
+                  classifier.compile(optimizer = 'rmsprop', loss = 'categorical_crossentropy', metrics = ['accuracy'])<br><br>
+                  stopper = EarlyStopping(monitor='val_loss', patience=VALIDATION_PATIENCE)<br><br>
+                  classifier.fit(X_train, y_train, batch_size=100, callbacks=[stopper], validation_data = (X_test, y_test), epochs=epochs, shuffle = True)<br><br>
                 </code>
               </p>
               <p>
@@ -322,18 +407,7 @@
                 Ciao Adios ! Until next time. !!!
               </p>
 
-
-
-              <div class="tag-widget post-tag-container mb-5 mt-5">
-                <div class="tagcloud">
-                  <a href="#" class="tag-cloud-link">Life</a>
-                  <a href="#" class="tag-cloud-link">Sport</a>
-                  <a href="#" class="tag-cloud-link">Tech</a>
-                  <a href="#" class="tag-cloud-link">Travel</a>
-                </div>
-              </div>
-
-            </div> <!-- .col-md-8 -->
+            </div>
 
           </div>
         </div>
